@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Tells browser this is HTML5 -->
+  <!-- head = invisible settings section -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grocery Shop Manager</title>
+
+  <!-- Link to our CSS file (we make this next) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- body = everything visible on screen -->
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>🛒 Grocery Shop Manager</h1>
+  </header>
+
+  <!-- ===== MAIN WRAPPER ===== -->
+  <main>
+
+    <!-- SECTION 1: Add Product -->
+    <section class="card" id="add-product">
+      <h2>Add Product</h2>
+
+      <!-- A form is a group of inputs -->
+      <div class="form-row">
+        <input type="text"   id="productName"  placeholder="Product name (e.g. Rice)" />
+        <input type="number" id="productPrice" placeholder="Price (e.g. 50)" />
+        <input type="number" id="productStock" placeholder="Stock quantity (e.g. 100)" />
+        <button onclick="addProduct()">Add</button>
+      </div>
+    </section>
+
+    <!-- SECTION 2: View Products -->
+    <section class="card" id="view-products">
+      <h2>Products in Stock</h2>
+
+      <!-- Table will be filled by JavaScript -->
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price (₹)</th>
+            <th>Stock</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody">
+          <!-- JS will insert rows here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 3: Create Bill -->
+    <section class="card" id="billing">
+      <h2>Create a Bill</h2>
+
+      <div class="form-row">
+        <select id="billProduct">
+          <!-- JS will fill product options here -->
+          <option value="">-- Select Product --</option>
+        </select>
+        <input type="number" id="billQty" placeholder="Quantity" />
+        <button onclick="addToBill()">Add to Bill</button>
+      </div>
+
+      <!-- Bill items will appear here -->
+      <ul id="billItems"></ul>
+
+      <div class="bill-total">
+        Total: ₹<span id="billTotal">0</span>
+      </div>
+
+      <button class="btn-confirm" onclick="confirmSale()">
+        ✅ Confirm Sale
+      </button>
+    </section>
+
+    <!-- SECTION 4: Sales Summary -->
+    <section class="card" id="sales">
+      <h2>Total Sales</h2>
+      <p>Number of sales: <strong id="salesCount">0</strong></p>
+      <p>Total revenue: ₹<strong id="salesRevenue">0</strong></p>
+    </section>
+
+  </main>
+
+  <!-- Link to our JS file — always at BOTTOM of body -->
+  <script src="app.js"></script>
+</body>
+</html>
